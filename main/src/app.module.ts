@@ -1,10 +1,8 @@
 import { Module, } from '@nestjs/common';
-
-// import { GraphQLModule } from '@nestjs/graphql';
 import { ModuleV1 } from './v1/index.module';
-import { RouterModule } from '@nestjs/core'
 import * as dotenv from 'dotenv';
 import { MongooseModule } from '@nestjs/mongoose';
+import { SubscribeModule } from './v1/subscribe/subcribe.module';
 
 
 dotenv.config();
@@ -13,6 +11,7 @@ dotenv.config();
   imports: [
     MongooseModule.forRoot('mongodb://localhost/main'),
     ModuleV1,
+    SubscribeModule
   ],
   providers: [],
 
